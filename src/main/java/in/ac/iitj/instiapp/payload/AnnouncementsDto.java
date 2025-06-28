@@ -1,7 +1,6 @@
 package in.ac.iitj.instiapp.payload;
 
 import in.ac.iitj.instiapp.payload.Media.MediaBaseDto;
-import in.ac.iitj.instiapp.payload.User.GroupDto;
 import in.ac.iitj.instiapp.payload.User.UserBaseDto;
 import lombok.Value;
 
@@ -17,20 +16,15 @@ import java.util.stream.Collectors;
 public class AnnouncementsDto implements Serializable {
     UserBaseDto userBaseDto;
     String Title;
-    String Description;
-    Date dateOfAnnouncement;
+    String Description;    Date dateOfAnnouncement;
     Set<MediaBaseDto> media;
-    GroupDto groupsListNames;
     String publicId;
-
-
-    public AnnouncementsDto(String username, String title, String description, Date dateOfAnnouncement, Set<String> mediaPublicIds, String groupPublicId,String publicId) {
+    public AnnouncementsDto(String username, String title, String description, Date dateOfAnnouncement, Set<String> mediaPublicIds, String publicId) {
         this.userBaseDto = new UserBaseDto(username);
         this.Title = title;
         this.Description = description;
         this.dateOfAnnouncement = dateOfAnnouncement;
         this.media = mediaPublicIds.stream().map(MediaBaseDto::new).collect(Collectors.toSet());
-        this.groupsListNames = new GroupDto(groupPublicId);
         this.publicId = publicId;
     }
 

@@ -1,7 +1,6 @@
 package in.ac.iitj.instiapp.database.entities;
 
 import in.ac.iitj.instiapp.database.entities.Media.Media;
-import in.ac.iitj.instiapp.database.entities.User.Group;
 import in.ac.iitj.instiapp.database.entities.User.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -34,12 +33,6 @@ public class Announcements {
     String Description;
 
     @Column(nullable = false)
-    Date dateOfAnnouncement;
-
-    @OneToMany
+    Date dateOfAnnouncement;    @OneToMany
     Set<Media> media;
-
-    @OneToOne
-    @JoinColumn(name = "groups_id")
-    Group group;
 }
