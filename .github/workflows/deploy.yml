@@ -28,6 +28,7 @@ jobs:
           context: .
           push: true
           tags: adityajha1082/my-springboot-app:latest
+          no-cache: true
 
       - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.3
